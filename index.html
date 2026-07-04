@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FNB Logistics LLC — Freight, Hauled Right</title>
+<meta name="description" content="FNB Logistics LLC — reliable freight and trucking services. Get a free quote today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@700;800&family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0D3444;
+    --navy-dark: #08222D;
+    --navy-light: #154759;
+    --gold: #D6962E;
+    --gold-light: #E8AC4D;
+    --off-white: #F6F4EF;
+    --slate: #5C6B72;
+    --white: #FFFFFF;
+    --line: rgba(13,52,68,0.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--navy);
+    background:var(--off-white);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:'Archivo Expanded',sans-serif;font-weight:800;line-height:1.08;letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Archivo',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    padding:14px 28px;
+    border-radius:4px;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--gold);color:var(--navy-dark);}
+  .btn-primary:hover{background:var(--gold-light); box-shadow:0 6px 18px rgba(214,150,46,0.35);}
+  .btn-outline{border-color:rgba(255,255,255,0.35);color:var(--white);}
+  .btn-outline:hover{border-color:var(--white); background:rgba(255,255,255,0.08);}
+  .btn-outline-navy{border-color:var(--navy);color:var(--navy);}
+  .btn-outline-navy:hover{background:var(--navy);color:var(--white);}
+  :focus-visible{outline:3px solid var(--gold); outline-offset:2px;}
+
+  /* ===== HEADER ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(8,34,45,0.96);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 28px; max-width:1200px; margin:0 auto;
+  }
+  .nav-logo{display:flex; align-items:center; gap:10px;}
+  .nav-logo img{height:38px; width:auto;}
+  .nav-links{display:flex; gap:32px; align-items:center;}
+  .nav-links a{
+    color:rgba(255,255,255,0.85); font-weight:600; font-size:14.5px;
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--gold-light);}
+  .nav-cta{display:flex; align-items:center; gap:20px;}
+  .nav-phone{color:var(--white); font-weight:700; font-size:14.5px; font-family:'IBM Plex Mono',monospace;}
+  .mobile-toggle{display:none; background:none; border:none; color:white; font-size:26px; cursor:pointer;}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .nav-phone{display:none;}
+    .mobile-toggle{display:block;}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    background:linear-gradient(180deg, var(--navy-dark) 0%, var(--navy) 100%);
+    padding:160px 0 100px;
+    overflow:hidden;
+    color:var(--white);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(38px, 5.2vw, 64px);
+    color:var(--white);
+    margin:18px 0 22px;
+  }
+  .hero h1 span{color:var(--gold-light);}
+  .hero p.lead{
+    font-size:18px; color:rgba(255,255,255,0.75); max-width:480px; margin-bottom:34px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:46px;}
+  .hero-stats{display:flex; gap:36px; flex-wrap:wrap;}
+  .hero-stat .num{
+    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:26px; color:var(--gold-light);
+  }
+  .hero-stat .label{font-size:12.5px; color:rgba(255,255,255,0.6); letter-spacing:0.03em;}
+
+  /* Route map signature element */
+  .route-panel{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:8px;
+    padding:26px;
+    position:relative;
+  }
+  .route-panel .manifest-row{
+    display:flex; justify-content:space-between;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+    color:rgba(255,255,255,0.55); letter-spacing:0.06em;
+    margin-bottom:18px; padding-bottom:14px; border-bottom:1px dashed rgba(255,255,255,0.15);
+  }
+  .route-panel .manifest-row b{color:var(--gold-light); display:block; font-size:14px; margin-top:4px; letter-spacing:0;}
+  .route-svg-wrap{position:relative; height:220px;}
+  .route-svg-wrap svg{width:100%; height:100%;}
+  .route-line{
+    stroke:var(--gold);
+    stroke-width:2.5;
+    fill:none;
+    stroke-dasharray:6 6;
+    stroke-dashoffset:1000;
+    stroke-linecap:round;
+    animation:drawRoute 2.6s ease-out forwards;
+  }
+  .route-line-solid{
+    stroke:rgba(255,255,255,0.18);
+    stroke-width:2;
+    fill:none;
+  }
+  @keyframes drawRoute{ to{ stroke-dashoffset:0; } }
+  .route-dot{
+    fill:var(--gold);
+    animation:pulseDot 2s ease-in-out infinite;
+  }
+  @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+  .route-city{fill:rgba(255,255,255,0.55); font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.05em;}
+  .route-footer{display:flex; justify-content:space-between; margin-top:16px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:rgba(255,255,255,0.45);}
+
+  /* ===== SECTION HEADERS ===== */
+  .section{padding:96px 0;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(30px,3.6vw,42px); margin:14px 0 16px; color:var(--navy);}
+  .section-head p{color:var(--slate); font-size:16.5px;}
+  .section-dark{background:var(--navy-dark); color:var(--white);}
+  .section-dark .section-head p{color:rgba(255,255,255,0.65);}
+  .section-dark .section-head h2{color:var(--white);}
+
+  /* ===== SERVICES ===== */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  .service-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:32px 28px;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .service-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 32px rgba(13,52,68,0.1);
+    border-color:rgba(214,150,46,0.4);
+  }
+  .service-card .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold);
+    letter-spacing:0.08em; margin-bottom:14px; display:block;
+  }
+  .service-card h3{font-size:21px; margin-bottom:10px; color:var(--navy);}
+  .service-card p{color:var(--slate); font-size:15px;}
+  .service-icon{
+    width:46px; height:46px; border-radius:6px;
+    background:var(--navy); display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px;
+  }
+  .service-icon svg{width:24px; height:24px; stroke:var(--gold-light);}
+
+  @media (max-width:900px){
+    .services-grid{grid-template-columns:1fr;}
+    .hero-grid{grid-template-columns:1fr;}
+  }
+
+  /* ===== WHY US ===== */
+  .why-wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start;}
+  .why-list{display:flex; flex-direction:column; gap:28px;}
+  .why-item{display:flex; gap:18px;}
+  .why-num{
+    font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--gold-light);
+    font-size:14px; min-width:32px; padding-top:3px;
+  }
+  .why-item h3{font-size:18px; margin-bottom:6px; color:var(--white); font-family:'Archivo',sans-serif; font-weight:700;}
+  .why-item p{color:rgba(255,255,255,0.65); font-size:15px;}
+  .why-panel{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:8px;
+    padding:36px;
+  }
+  .why-panel-stats{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:28px;}
+  .why-panel-stats .num{font-family:'IBM Plex Mono',monospace; font-size:34px; color:var(--gold-light); font-weight:600;}
+  .why-panel-stats .label{font-size:13px; color:rgba(255,255,255,0.55); margin-top:4px;}
+  .why-panel-quote{
+    border-top:1px dashed rgba(255,255,255,0.15); padding-top:24px;
+    font-size:15px; color:rgba(255,255,255,0.8); font-style:italic;
+  }
+  @media (max-width:900px){ .why-wrap{grid-template-columns:1fr;} }
+
+  /* ===== LANES / COVERAGE ===== */
+  .lanes-strip{
+    display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--white);
+  }
+  .lane-cell{
+    flex:1 1 20%; min-width:140px; padding:26px 20px; text-align:center;
+    border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .lane-cell .code{font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--gold); font-size:13px; letter-spacing:0.06em;}
+  .lane-cell .city{font-weight:700; font-size:16px; margin-top:6px; color:var(--navy);}
+  @media (max-width:800px){
+    .lane-cell{flex:1 1 50%;}
+  }
+
+  /* ===== QUOTE FORM ===== */
+  .quote-section{background:var(--white);}
+  .quote-wrap{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:0;
+    border:1px solid var(--line); border-radius:10px; overflow:hidden;
+    background:var(--white);
+  }
+  .quote-info{
+    background:var(--navy); color:var(--white); padding:48px 40px;
+  }
+  .quote-info h2{font-size:28px; margin:14px 0 16px;}
+  .quote-info p{color:rgba(255,255,255,0.7); font-size:15px; margin-bottom:28px;}
+  .quote-info-item{display:flex; gap:12px; margin-bottom:18px; align-items:flex-start;}
+  .quote-info-item svg{width:20px; height:20px; stroke:var(--gold-light); flex-shrink:0; margin-top:2px;}
+  .quote-info-item span{font-size:14.5px; color:rgba(255,255,255,0.85);}
+  .quote-form{padding:48px 40px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .form-group{margin-bottom:16px; display:flex; flex-direction:column; gap:6px;}
+  label{font-size:13px; font-weight:600; color:var(--navy);}
+  input, select, textarea{
+    border:1.5px solid var(--line);
+    border-radius:5px;
+    padding:12px 14px;
+    font-family:'Inter',sans-serif;
+    font-size:14.5px;
+    color:var(--navy);
+    background:var(--off-white);
+    transition:border-color .15s ease;
+  }
+  input:focus, select:focus, textarea:focus{
+    outline:none; border-color:var(--gold);
+  }
+  textarea{resize:vertical; min-height:90px;}
+  .submit-row{display:flex; align-items:center; gap:16px; margin-top:8px; flex-wrap:wrap;}
+  .form-note{font-size:12.5px; color:var(--slate);}
+  @media (max-width:860px){
+    .quote-wrap{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+  }
+  .form-success{
+    display:none;
+    background:rgba(214,150,46,0.12);
+    border:1px solid var(--gold);
+    border-radius:6px;
+    padding:16px 18px;
+    font-size:14.5px;
+    color:var(--navy);
+    font-weight:600;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-wrap{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;}
+  .about-wrap p{color:var(--slate); font-size:16px; margin-bottom:16px;}
+  .about-cred{
+    display:flex; gap:32px; margin-top:32px; flex-wrap:wrap;
+  }
+  .about-cred-item .num{font-family:'IBM Plex Mono',monospace; font-size:28px; font-weight:600; color:var(--navy);}
+  .about-cred-item .label{font-size:13px; color:var(--slate);}
+  .about-visual{
+    background:var(--navy); border-radius:10px; aspect-ratio:4/3.2;
+    position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .about-visual .grain{position:absolute; inset:0; background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 14px);}
+  .about-visual-content{position:relative; text-align:center; padding:40px;}
+  .about-visual-content .badge-circle{
+    width:90px; height:90px; border-radius:50%; border:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 18px;
+  }
+  .about-visual-content .badge-circle svg{width:42px; height:42px; stroke:var(--gold-light);}
+  .about-visual-content p{color:rgba(255,255,255,0.7); font-size:14px; max-width:260px; margin:0 auto;}
+  @media (max-width:900px){ .about-wrap{grid-template-columns:1fr;} .about-visual{order:-1;} }
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy-dark); color:rgba(255,255,255,0.6); padding:60px 0 28px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:48px;}
+  .footer-logo{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .footer-logo img{height:34px;}
+  .footer-col h4{font-family:'Archivo',sans-serif; color:var(--white); font-size:14px; margin-bottom:16px; letter-spacing:0.02em;}
+  .footer-col a{display:block; color:rgba(255,255,255,0.55); font-size:14.5px; margin-bottom:10px; transition:color .15s ease;}
+  .footer-col a:hover{color:var(--gold-light);}
+  .footer-col p{font-size:14.5px; color:rgba(255,255,255,0.55); margin-bottom:10px;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.08); padding-top:24px;
+    display:flex; justify-content:space-between; font-size:13px; flex-wrap:wrap; gap:10px;
+  }
+  @media (max-width:860px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .footer-grid{grid-template-columns:1fr;} }
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="nav-logo">
+      <img src="logo.png" alt="FNB Logistics LLC logo">
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+16155075262">(615) 507-5262</a>
+      <a href="#quote" class="btn btn-primary">Get a Quote</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Trucking &amp; Freight Services</span>
+      <h1>Freight that gets there. <span>On time, every time.</span></h1>
+      <p class="lead">FNB Logistics LLC moves freight across the country with dedicated drivers, real-time tracking, and a dispatch team that actually picks up the phone.</p>
+      <div class="hero-ctas">
+        <a href="#quote" class="btn btn-primary">Request a Free Quote</a>
+        <a href="#services" class="btn btn-outline">See Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">24/7</div>
+          <div class="label">DISPATCH</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">48</div>
+          <div class="label">STATES SERVED</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">99.2%</div>
+          <div class="label">ON-TIME RATE</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="route-panel">
+      <div class="manifest-row">
+        <div>ORIGIN<b>Dallas, TX</b></div>
+        <div>DESTINATION<b>Chicago, IL</b></div>
+        <div>ETA<b id="eta-clock">14:20</b></div>
+      </div>
+      <div class="route-svg-wrap">
+        <svg viewBox="0 0 400 220" preserveAspectRatio="none">
+          <path class="route-line-solid" d="M30,180 C100,40 280,200 370,40"/>
+          <path class="route-line" d="M30,180 C100,40 280,200 370,40"/>
+          <circle class="route-dot" cx="30" cy="180" r="5"/>
+          <circle class="route-dot" cx="370" cy="40" r="5" style="animation-delay:1s"/>
+          <text class="route-city" x="14" y="200">DFW</text>
+          <text class="route-city" x="348" y="30">ORD</text>
+        </svg>
+      </div>
+      <div class="route-footer">
+        <span>LOAD #FNB-48217</span>
+        <span>925 MI · DRY VAN</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Haul</span>
+      <h2>Built for freight that can't wait.</h2>
+      <p>Dry van freight, moved right — our 26ft box trucks and cargo vans give you flexible capacity without paying for space you don't need.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <span class="tag">DRY VAN</span>
+        <h3>26ft Box Truck</h3>
+        <p>Enclosed dry van capacity for palletized freight and larger loads, without the wait time of a full tractor-trailer.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9z"/><path d="M12 22V12M21 6.9L12 12 3 6.9"/></svg></div>
+        <span class="tag">CARGO VAN</span>
+        <h3>Cargo Van Freight</h3>
+        <p>Smaller, time-sensitive shipments moved quick and direct — no waiting to fill out a full trailer.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <span class="tag">TIME-CRITICAL</span>
+        <h3>Expedited Shipping</h3>
+        <p>Hot loads handled with priority dispatch and direct routing when the deadline can't move.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
+        <span class="tag">RIGHT-SIZED</span>
+        <h3>Flexible Equipment</h3>
+        <p>Box truck or cargo van — we match the right vehicle to your load size, so you're never paying for unused space.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <span class="tag">VISIBILITY</span>
+        <h3>Real-Time Tracking</h3>
+        <p>Know where your freight is at every leg of the trip, with status updates from pickup to delivery.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg></div>
+        <span class="tag">SUPPORT</span>
+        <h3>Dedicated Dispatch</h3>
+        <p>A direct line to a real dispatcher, available around the clock for the life of your shipment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="why">
+  <div class="wrap why-wrap">
+    <div>
+      <div class="section-head reveal" style="margin-bottom:40px;">
+        <span class="eyebrow">Why Shippers Choose FNB</span>
+        <h2>Freight runs on trust. We earn it every load.</h2>
+      </div>
+      <div class="why-list">
+        <div class="why-item reveal">
+          <div class="why-num">→</div>
+          <div>
+            <h3>Drivers you can count on</h3>
+            <p>Experienced, vetted drivers who treat every load like it's the only one that matters.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-num">→</div>
+          <div>
+            <h3>Transparent pricing</h3>
+            <p>No hidden fees or surprise accessorials — the quote you get is the rate you pay.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-num">→</div>
+          <div>
+            <h3>Dispatch that answers</h3>
+            <p>A real person picks up, day or night, whenever you need a status update.</p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-num">→</div>
+          <div>
+            <h3>Fully licensed &amp; insured</h3>
+            <p>DOT and MC authority in good standing, with full cargo insurance on every load.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-panel reveal">
+      <div class="why-panel-stats">
+        <div>
+          <div class="num">99.2%</div>
+          <div class="label">ON-TIME DELIVERY</div>
+        </div>
+        <div>
+          <div class="num">24/7</div>
+          <div class="label">LIVE DISPATCH</div>
+        </div>
+        <div>
+          <div class="num">48</div>
+          <div class="label">STATES COVERED</div>
+        </div>
+        <div>
+          <div class="num">0</div>
+          <div class="label">HIDDEN FEES</div>
+        </div>
+      </div>
+      <div class="why-panel-quote">
+        "We don't just move freight — we move it the way we'd want our own shipment handled: on time, fully insured, and with someone always reachable."
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="coverage">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Coverage</span>
+      <h2>Running freight across the region.</h2>
+      <p>Based in Tennessee, sourcing loads via the load board and running freight throughout these states.</p>
+    </div>
+    <div class="lanes-strip reveal">
+      <div class="lane-cell"><div class="code">TN</div><div class="city">Tennessee</div></div>
+      <div class="lane-cell"><div class="code">NC</div><div class="city">North Carolina</div></div>
+      <div class="lane-cell"><div class="code">GA</div><div class="city">Georgia</div></div>
+      <div class="lane-cell"><div class="code">KY</div><div class="city">Kentucky</div></div>
+      <div class="lane-cell"><div class="code">IN</div><div class="city">Indiana</div></div>
+      <div class="lane-cell"><div class="code">IL</div><div class="city">Illinois</div></div>
+      <div class="lane-cell"><div class="code">OH</div><div class="city">Ohio</div></div>
+      <div class="lane-cell"><div class="code">SC</div><div class="city">South Carolina</div></div>
+      <div class="lane-cell"><div class="code">FL</div><div class="city">Florida</div></div>
+      <div class="lane-cell"><div class="code">AL</div><div class="city">Alabama</div></div>
+      <div class="lane-cell"><div class="code">TX</div><div class="city">Texas</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section quote-section" id="quote">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Get Started</span>
+      <h2>Request your free freight quote.</h2>
+      <p>Tell us about your shipment and a dispatcher will get back to you, usually within one business hour.</p>
+    </div>
+    <div class="quote-wrap reveal">
+      <div class="quote-info">
+        <span class="eyebrow">FNB LOGISTICS LLC</span>
+        <h2>Talk to dispatch directly.</h2>
+        <p>Prefer to call it in? Reach our team directly — no call centers, no hold music.</p>
+        <div class="quote-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>(615) 507-5262 — 24/7 Dispatch</span>
+        </div>
+        <div class="quote-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+          <span>info@fnblogistics.com</span>
+        </div>
+        <div class="quote-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>Most quotes returned within 1 business hour</span>
+        </div>
+      </div>
+      <div class="quote-form">
+        <form id="quoteForm" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="quote-request">
+          <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" required placeholder="Jane Carter">
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" placeholder="Carter Foods Inc.">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="jane@company.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(000) 000-0000">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="origin">Pickup city/state</label>
+              <input type="text" id="origin" name="origin" placeholder="Dallas, TX">
+            </div>
+            <div class="form-group">
+              <label for="dest">Delivery city/state</label>
+              <input type="text" id="dest" name="dest" placeholder="Chicago, IL">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="loadtype">Load type</label>
+              <select id="loadtype" name="loadtype">
+                <option>26ft Box Truck (Dry Van)</option>
+                <option>Cargo Van</option>
+                <option>Expedited</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Pickup date</label>
+              <input type="date" id="date" name="date">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="details">Shipment details</label>
+            <textarea id="details" name="details" placeholder="Weight, dimensions, pallet count, special handling..."></textarea>
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="btn btn-primary">Submit Quote Request</button>
+            <span class="form-note">We'll never share your info. No spam, ever.</span>
+          </div>
+          <div class="form-success" id="formSuccess">✓ Got it — a dispatcher will reach out shortly to confirm your quote.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap about-wrap">
+    <div class="reveal">
+      <span class="eyebrow">About FNB Logistics</span>
+      <h2 style="font-size:clamp(28px,3.4vw,38px); margin:14px 0 18px;">Family-run. Road-tested. Built on follow-through.</h2>
+      <p>FNB Logistics LLC was built on a simple idea: freight companies should do exactly what they say they'll do. No overpromising on transit times, no disappearing dispatchers, no surprise charges after pickup.</p>
+      <p>Every load we run is backed by licensed, insured drivers and a dispatch team that stays in your corner from pickup to final delivery — because in this business, your word is the whole job.</p>
+      <div class="about-cred">
+        <div class="about-cred-item">
+          <div class="num">DOT</div>
+          <div class="label">Licensed Carrier</div>
+        </div>
+        <div class="about-cred-item">
+          <div class="num">MC</div>
+          <div class="label">Authority in Good Standing</div>
+        </div>
+        <div class="about-cred-item">
+          <div class="num">$1M+</div>
+          <div class="label">Cargo Insurance</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="grain"></div>
+      <div class="about-visual-content">
+        <div class="badge-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <p>Fully licensed, bonded, and insured for freight across the continental United States.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="logo.png" alt="FNB Logistics LLC">
+        </div>
+        <p style="max-width:280px;">Reliable trucking and freight services, running lanes across the continental U.S.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#about">About</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get a Quote</h4>
+        <a href="#quote">Request a Quote</a>
+        <a href="tel:+16155075262">Call Dispatch</a>
+        <a href="mailto:info@fnblogistics.com">Email Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>(615) 507-5262</p>
+        <p>info@fnblogistics.com</p>
+        <p>Based in the USA</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 FNB Logistics LLC. All rights reserved.</span>
+      <span>DOT# 4332724 · MC# 1691866</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal-on-scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  reveals.forEach(el=>obs.observe(el));
+
+  // Form handling — submits to Netlify Forms
+  const form = document.getElementById('quoteForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      success.style.display = 'block';
+      form.reset();
+      success.scrollIntoView({behavior:'smooth', block:'nearest'});
+    })
+    .catch(() => {
+      alert('Something went wrong submitting your request. Please call or email us directly.');
+    });
+  });
+
+  // Live ETA clock illusion — ticks ETA forward subtly for realism
+  const etaEl = document.getElementById('eta-clock');
+  let etaMinutes = 14*60+20;
+  setInterval(()=>{
+    etaMinutes += 1;
+    const h = Math.floor(etaMinutes/60)%24;
+    const m = etaMinutes%60;
+    etaEl.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+  }, 8000);
+</script>
+
+</body>
+</html>
